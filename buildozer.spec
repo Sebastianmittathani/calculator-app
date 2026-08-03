@@ -20,10 +20,10 @@ orientation = portrait
 fullscreen = 0
 
 # Android Settings
-android.api = 33
+android.api = 34
 android.minapi = 21
 android.sdk = 33
-android.ndk = 25b
+android.ndk = 26b
 
 # Architectures
 android.archs = arm64-v8a, armeabi-v7a
