@@ -1,6 +1,9 @@
-venv/
-__pycache__/
-.buildozer/
 bin/
+build/
 .gradle/
+__pycache__/
 *.pyc
+*.pyo
+*.pyd
+venv/
+.env
