@@ -1,0 +1,164 @@
+#:import RoundButton widgets.RoundButton
+
+<RoundButton>:
+    color: (1,1,1,1)
+    font_size: 26
+    bold: True
+
+<CalculatorScreen>:
+
+    orientation: "vertical"
+    spacing: 10
+    padding: 15
+
+    canvas.before:
+        Color:
+            rgba: (0.1,0.1,0.1,1) if root.dark else (1,1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        size_hint_y: 0.12
+        spacing: 10
+
+        RoundButton:
+            id: theme_btn
+            text: "☀"
+            size_hint_x: .2
+            font_size: 24
+            bg_color: (0.25,0.25,0.25,1) if root.dark else (0.85,0.85,0.85,1)
+            color: (1,1,1,1) if root.dark else (0,0,0,1)
+            on_press: root.toggle_theme()
+
+        Label:
+            text: "Calculator"
+            font_size: 24
+            bold: True
+            color: (1,1,1,1) if root.dark else (0,0,0,1)
+
+    TextInput:
+        id: display
+        text: "0"
+        readonly: True
+        multiline: False
+        halign: "right"
+        font_size: 50
+        size_hint_y: .18
+        background_normal: ""
+        background_active: ""
+        background_color: (0.15,0.15,0.15,1) if root.dark else (0.95,0.95,0.95,1)
+        foreground_color: (1,1,1,1) if root.dark else (0,0,0,1)
+
+    BoxLayout:
+
+        GridLayout:
+            cols: 3
+            spacing: 10
+
+            RoundButton:
+                text: "7"
+                bg_color: (.22,.22,.22,1) if root.dark else (.88,.88,.88,1)
+                color: (1,1,1,1) if root.dark else (0,0,0,1)
+                on_press: root.button_press("7")
+
+            RoundButton:
+                text: "8"
+                bg_color: (.22,.22,.22,1) if root.dark else (.88,.88,.88,1)
+                color: (1,1,1,1) if root.dark else (0,0,0,1)
+                on_press: root.button_press("8")
+
+            RoundButton:
+                text: "9"
+                bg_color: (.22,.22,.22,1) if root.dark else (.88,.88,.88,1)
+                color: (1,1,1,1) if root.dark else (0,0,0,1)
+                on_press: root.button_press("9")
+
+            RoundButton:
+                text: "4"
+                bg_color: (.22,.22,.22,1) if root.dark else (.88,.88,.88,1)
+                color: (1,1,1,1) if root.dark else (0,0,0,1)
+                on_press: root.button_press("4")
+
+            RoundButton:
+                text: "5"
+                bg_color: (.22,.22,.22,1) if root.dark else (.88,.88,.88,1)
+                color: (1,1,1,1) if root.dark else (0,0,0,1)
+                on_press: root.button_press("5")
+
+            RoundButton:
+                text: "6"
+                bg_color: (.22,.22,.22,1) if root.dark else (.88,.88,.88,1)
+                color: (1,1,1,1) if root.dark else (0,0,0,1)
+                on_press: root.button_press("6")
+
+            RoundButton:
+                text: "1"
+                bg_color: (.22,.22,.22,1) if root.dark else (.88,.88,.88,1)
+                color: (1,1,1,1) if root.dark else (0,0,0,1)
+                on_press: root.button_press("1")
+
+            RoundButton:
+                text: "2"
+                bg_color: (.22,.22,.22,1) if root.dark else (.88,.88,.88,1)
+                color: (1,1,1,1) if root.dark else (0,0,0,1)
+                on_press: root.button_press("2")
+
+            RoundButton:
+                text: "3"
+                bg_color: (.22,.22,.22,1) if root.dark else (.88,.88,.88,1)
+                color: (1,1,1,1) if root.dark else (0,0,0,1)
+                on_press: root.button_press("3")
+
+            RoundButton:
+                text: "."
+                bg_color: (.22,.22,.22,1) if root.dark else (.88,.88,.88,1)
+                color: (1,1,1,1) if root.dark else (0,0,0,1)
+                on_press: root.button_press(".")
+
+            RoundButton:
+                text: "0"
+                bg_color: (.22,.22,.22,1) if root.dark else (.88,.88,.88,1)
+                color: (1,1,1,1) if root.dark else (0,0,0,1)
+                on_press: root.button_press("0")
+
+            RoundButton:
+                text: "C"
+                bg_color: (.85, .2, .2, 1)
+                color: (1,1,1,1)
+                on_press: root.clear()
+
+        BoxLayout:
+            orientation: "vertical"
+            spacing: 10
+            size_hint_x: .25
+
+            RoundButton:
+                text: "÷"
+                bg_color: (1, .55, 0, 1)
+                color: (1,1,1,1)
+                on_press: root.button_press("/")
+
+            RoundButton:
+                text: "×"
+                bg_color: (1, .55, 0, 1)
+                color: (1,1,1,1)
+                on_press: root.button_press("*")
+
+            RoundButton:
+                text: "−"
+                bg_color: (1, .55, 0, 1)
+                color: (1,1,1,1)
+                on_press: root.button_press("-")
+
+            RoundButton:
+                text: "+"
+                bg_color: (1, .55, 0, 1)
+                color: (1,1,1,1)
+                on_press: root.button_press("+")
+
+            RoundButton:
+                text: "="
+                bg_color: (0.2, 0.6, 1, 1)
+                color: (1,1,1,1)
+                on_press: root.calculate()
